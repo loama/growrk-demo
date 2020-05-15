@@ -1,11 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <ul class="users">
+      <li>
+        <div class="head">
+          user
+        </div>
+
+        <div class="content">
+          content
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      selected: null
+    }
+  },
   name: 'Home'
 }
 </script>

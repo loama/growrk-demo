@@ -1,7 +1,10 @@
 <template>
-  <div>
+  <div id="LoginPage"
+       v-bind:style="{
+         display: $store.state.loginPage.styles.display,
+         opacity: $store.state.loginPage.styles.opacity
+       }">
     <div id="firebaseui-auth-container"></div>
-    user: {{user}}
   </div>
 </template>
 
@@ -12,7 +15,6 @@ const frb = require('../firebaseConfig.js')
 export default {
   data () {
     return {
-      user: frb.currentUser
     }
   },
   mounted () {
@@ -40,3 +42,48 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+#LoginPage
+  background: #FFF
+  height: 100vh
+  left: 0
+  position: fixed
+  top: 0
+  transition: all 0.3s
+  width: 100vw
+  z-index: 10
+
+  .firebaseui-card-content
+    background: #FFF
+    border: 1px solid gray
+    border-bottom: none
+    margin: 0 auto
+    width: 304px
+
+    ul
+      list-style: none
+
+      .firebaseui-idp-google
+        height: 40px
+        padding: 8px
+
+        .firebaseui-idp-text
+          display: inline-block
+          margin-top: 4px
+          vertical-align: top
+
+        img
+          height: 28px
+
+      .firebaseui-idp-text-short
+        display: none !important
+
+  .firebaseui-card-footer
+    background: #FFF
+    border: 1px solid gray
+    border-top: none
+    margin: -16px auto
+    padding: 8px
+    width: 288px
+</style>
